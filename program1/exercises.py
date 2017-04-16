@@ -7,13 +7,14 @@
 
 
 #2
-money={"saving_acocunt":200,"checking_account":100,"under_bed":[500,10,100]}
+money={"saving_account":200,"checking_account":100,"under_bed":[500,10,100]}
 # print(money["under_bed"][1])
 
 #3
 def celcius_to_fahrenheit(cel):
     if cel < -273.15:
-        print('not possible')
+        # print('not possible')
+        return ""
     else:
         f = cel * (9/5) + 32
         return f
@@ -21,7 +22,23 @@ def celcius_to_fahrenheit(cel):
 # print(celcius_to_fahrenheit(-273.4))
 
 #4
-temperatures=[10,-20,-289,100]
-for i in temperatures:
-    print(celcius_to_fahrenheit(i))
+
+# temperatures=[10,-20,-289,100]
+# for i in temperatures:
+#     print(celcius_to_fahrenheit(i))
+
 #5
+temps=[10,-20,-289,100]
+def tempWriter(temperatures):
+    file=open("tempfile.txt",'a')
+    for temp in temperatures:
+        if temp < -273.15:
+            print(temp)
+        else:
+            strTemp = str(celcius_to_fahrenheit(temp))
+            if type(strTemp) != float:
+                file.write(strTemp + "\n")
+    file.close()
+
+tempWriter(temps)
+#6 
